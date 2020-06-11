@@ -12,6 +12,6 @@ DUO is an app designed for couples with efficiency in mind. Track anniversaries,
 
 [User Stories](pre-project/user-stories.md)
 
-[Project ERD](pre-project/erd.jpeg)
+[Project ERD](pre-project/project-erd.jpeg)
 
 [Wireframes](pre-project/wireframes.md)
