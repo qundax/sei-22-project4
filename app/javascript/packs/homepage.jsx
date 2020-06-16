@@ -13,7 +13,7 @@ import Footer from '../components/Footer'
 class Homepage extends React.Component {
     render() {
         return (
-            <div>
+            <div className="d-flex flex-column align-items-center" style={{position: "relative", minHeight: "100vh"}}>
                 <AppNav />
                 <HomepageContent />
                 <Footer />
