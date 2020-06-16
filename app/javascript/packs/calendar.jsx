@@ -13,7 +13,7 @@ import Footer from '../components/Footer'
 class Calendar extends React.Component {
     render() {
         return (
-            <div className="d-flex flex-column align-items-center" style={{position: "relative", minHeight: "100vh", backgroundColor: '#F6F6F6'}}>
+            <div className="d-flex flex-column align-items-center" style={{position: "relative", minHeight: "100vh"}}>
                 <AppNav />
                 <CalendarContent />
                 <Footer />
