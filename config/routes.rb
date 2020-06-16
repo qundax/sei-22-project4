@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root 'onepage#landing'
 
   get '/homepage' => 'onepage#homepage'
+  get '/calendar' => 'onepage#calendar'
+  get '/countdown' => 'onepage#countdown'
+  get '/photos' => 'onepage#photos'
 end
