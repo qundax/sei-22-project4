@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import countdown from '../../assets/images/countdown.jpg'
 import photos from '../../assets/images/photos.jpg'
 import calendar from '../../assets/images/calendar.jpg'
-import Cover from './Cover'
+import LandingCover from './LandingCover'
 
 export default class LandingContent extends React.Component {
     render() {
@@ -51,7 +51,7 @@ export default class LandingContent extends React.Component {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-                <Cover />
+                <LandingCover />
             </div>
         );
     }
