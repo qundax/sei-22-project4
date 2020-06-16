@@ -16,7 +16,7 @@ export default class CalendarContent extends React.Component {
 
     render() {
         return (
-            <div className="d-flex justify-content-around mt-2 w-100" style={{paddingBottom: '2.5em'}}>
+            <div className="d-flex justify-content-around mt-2 w-100" style={{paddingBottom: '2.5em', backgroundColor: '#F6F6F6'}}>
                 <DatePicker className='datepicker mt-5' highlightCurrentDay='true' onChange={(value)=>{this.setDate(value)}} />
                 <Events date={this.state.date} />
             </div>
