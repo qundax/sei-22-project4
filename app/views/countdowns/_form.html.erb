@@ -1,0 +1,32 @@
+<%= form_with(model: countdown, local: true) do |form| %>
+  <% if countdown.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(countdown.errors.count, "error") %> prohibited this countdown from being saved:</h2>
+
+      <ul>
+        <% countdown.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :couple_id %>
+    <%= form.text_field :couple_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

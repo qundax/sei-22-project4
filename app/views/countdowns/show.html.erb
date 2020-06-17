@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Couple:</strong>
+  <%= @countdown.couple_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @countdown.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @countdown.date %>
+</p>
+
+<%= link_to 'Edit', edit_countdown_path(@countdown) %> |
+<%= link_to 'Back', countdowns_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :countdowns
   resources :events
   resources :couples
   devise_for :users
