@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photos
   resources :countdowns
   resources :events
   resources :couples
