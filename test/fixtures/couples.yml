@@ -1,0 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  anniversary: 2020-06-17 07:30:45
+
+two:
+  anniversary: 2020-06-17 07:30:45
