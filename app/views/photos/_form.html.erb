@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :couple_id %>
-    <%= form.text_field :couple_id %>
+  <div class="field my-4" style="text-align: left">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_area :image_url %>
-  </div>
-
-  <div class="field">
+  <div class="field my-4" style="text-align: left">
     <%= form.label :caption %>
     <%= form.text_area :caption %>
   </div>
 
-  <div class="actions">
+  <div class="actions my-4">
     <%= form.submit %>
   </div>
 <% end %>

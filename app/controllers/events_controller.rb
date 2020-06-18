@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where(couple: Couple.where(user1: current_user).or(Couple.where(user2: current_user)).first)
   end
 
   # GET /events/1
@@ -24,12 +24,19 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    event_date = DateTime.new(event_params["date(1i)"].to_i,event_params["date(2i)"].to_i,event_params["date(3i)"].to_i,event_params["date(4i)"].to_i,event_params["date(5i)"].to_i,0)
+
+    @event = Event.new({
+      couple: Couple.where(user1: current_user).or(Couple.where(user2: current_user)).first,
+      name: event_params[:name],
+      date: event_date,
+      description: event_params[:description],
+      is_couple_event: event_params[:is_couple_event]
+    })
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        format.html { redirect_to '/calendar' }
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -69,6 +76,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:couple_id, :name, :date, :description, :is_couple_event)
+      params.require(:event).permit(:name, :date, :description, :is_couple_event)
     end
 end

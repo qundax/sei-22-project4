@@ -2,8 +2,10 @@ class CreateCouples < ActiveRecord::Migration[6.0]
   def change
     create_table :couples do |t|
       t.timestamp :anniversary
-      t.integer :user1, index: true, foreign_key: true
-      t.integer :user2, index: true, foreign_key: true
+      t.references :user1
+      t.references :user2
+      t.integer :partner1
+      t.integer :partner2
 
       t.timestamps
     end

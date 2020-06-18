@@ -1,3 +1,5 @@
+require 'date'
+
 class CouplesController < ApplicationController
   before_action :set_couple, only: [:show, :edit, :update, :destroy]
 
@@ -24,7 +26,14 @@ class CouplesController < ApplicationController
   # POST /couples
   # POST /couples.json
   def create
-    @couple = Couple.new(couple_params)
+    anniversary_date = DateTime.new(couple_params["anniversary(1i)"].to_i,couple_params["anniversary(2i)"].to_i,couple_params["anniversary(3i)"].to_i,couple_params["anniversary(4i)"].to_i,couple_params["anniversary(5i)"].to_i,0)
+    @couple = Couple.new({
+      anniversary: anniversary_date,
+      user1: current_user,
+      user2: User.where(email: couple_params[:partner_email]).first,
+      partner1: current_user.id,
+      partner2: User.where(email: couple_params[:partner_email]).first.id,
+    })
 
     respond_to do |format|
       if @couple.save
@@ -69,6 +78,6 @@ class CouplesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def couple_params
-      params.require(:couple).permit(:anniversary)
+      params.require(:couple).permit(:anniversary, :partner_email)
     end
 end

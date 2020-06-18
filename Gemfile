@@ -58,3 +58,5 @@ gem "ffaker", "~> 2.15"
 gem 'bootstrap', '~> 4.5.0'
 
 gem 'cloudinary'
+
+gem 'react-rails'

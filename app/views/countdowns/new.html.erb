@@ -1,5 +1,23 @@
-<h1>New Countdown</h1>
+<div class="d-flex flex-column align-items-center" style="position: relative; min-height: 100vh;">
+	<div class="d-flex flex-column align-items-center w-100" style="background-color: rgb(255, 255, 255);">
+		<nav class="navbar navbar-expand navbar-light"><a href="/homepage"><img src="/packs/media/images/logo-d6fed90d.png" alt="DUO©" style="height: 50px;"></a></nav>
+		<div class="d-flex align-items-center" style="text-decoration: none;">
+			<a href="/calendar" class="nav-link">Calendar</a>
+			<a href="/countdown" class="nav-link">Countdown</a>
+			<a href="/photos-react" class="nav-link">Photos</a>
+			<button type="button" class="bp3-button bp3-minimal" style="font-size: 20px;"><span class="bp3-button-text">Log Out</span></button>
+		</div>
+	</div>
 
-<%= render 'form', countdown: @countdown %>
+<div class="d-flex flex-column align-items-center mt-2 w-100" style="padding-bottom: 2.5em; background-color: rgb(246, 246, 246); height: 650px">
 
-<%= link_to 'Back', countdowns_path %>
+	<div style="margin-top: 100px; text-align: center">
+		<h1>New Countdown</h1>
+
+		<%= render 'form', countdown: @countdown %>
+
+		<%= link_to 'Back', '/countdown' %>
+	</div>
+
+	<nav class="navbar navbar-expand navbar-light" style="position: absolute; bottom: 0px; width: 100%; height: 2.5rem; color: rgb(255, 255, 255); justify-content: center; background: rgb(0, 0, 0);">DUO © 2020</nav>
+</div>

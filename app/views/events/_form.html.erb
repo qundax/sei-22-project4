@@ -11,32 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :couple_id %>
-    <%= form.text_field :couple_id %>
-  </div>
-
-  <div class="field">
+  <div class="field my-4" style="text-align: left">
     <%= form.label :name %>
-    <%= form.text_area :name %>
+    <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field my-4" style="text-align: left">
     <%= form.label :date %>
     <%= form.datetime_select :date %>
   </div>
 
-  <div class="field">
+  <div class="field my-4" style="text-align: left">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
+  <div class="field my-4" style="text-align: left">
     <%= form.label :is_couple_event %>
     <%= form.check_box :is_couple_event %>
   </div>
 
-  <div class="actions">
+  <div class="actions my-4">
     <%= form.submit %>
   </div>
 <% end %>

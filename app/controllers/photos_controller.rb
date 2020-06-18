@@ -25,6 +25,12 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = Photo.new(photo_params)
+    @photo.couple = current_user.couple
+
+    uploaded_file = params[:photo][:image].path
+    cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+    @photo.image_url = cloudnary_file['public_id']
 
     respond_to do |format|
       if @photo.save
@@ -69,6 +75,6 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:couple_id, :image_url, :caption)
+      params.require(:photo).permit(:image, :caption)
     end
 end

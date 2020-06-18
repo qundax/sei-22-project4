@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(version: 2020_06_17_011759) do
 
   create_table "couples", force: :cascade do |t|
     t.datetime "anniversary"
-    t.integer "user1"
-    t.integer "user2"
+    t.bigint "user1_id"
+    t.bigint "user2_id"
+    t.integer "partner1"
+    t.integer "partner2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user1"], name: "index_couples_on_user1"
-    t.index ["user2"], name: "index_couples_on_user2"
+    t.index ["user1_id"], name: "index_couples_on_user1_id"
+    t.index ["user2_id"], name: "index_couples_on_user2_id"
   end
 
   create_table "events", force: :cascade do |t|

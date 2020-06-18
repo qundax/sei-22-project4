@@ -4,7 +4,7 @@ class CountdownsController < ApplicationController
   # GET /countdowns
   # GET /countdowns.json
   def index
-    @countdowns = Countdown.all
+    @countdowns = Countdown.where(couple: Couple.where(user1: current_user).or(Couple.where(user2: current_user)).first)
   end
 
   # GET /countdowns/1
@@ -24,12 +24,17 @@ class CountdownsController < ApplicationController
   # POST /countdowns
   # POST /countdowns.json
   def create
-    @countdown = Countdown.new(countdown_params)
+    countdown_date = DateTime.new(countdown_params["date(1i)"].to_i,countdown_params["date(2i)"].to_i,countdown_params["date(3i)"].to_i,countdown_params["date(4i)"].to_i,countdown_params["date(5i)"].to_i,0)
+
+    @countdown = Countdown.new({
+      couple: Couple.where(user1: current_user).or(Couple.where(user2: current_user)).first,
+      name: countdown_params[:name],
+      date: countdown_date
+    })
 
     respond_to do |format|
       if @countdown.save
-        format.html { redirect_to @countdown, notice: 'Countdown was successfully created.' }
-        format.json { render :show, status: :created, location: @countdown }
+        format.html { redirect_to '/countdown' }
       else
         format.html { render :new }
         format.json { render json: @countdown.errors, status: :unprocessable_entity }
@@ -69,6 +74,6 @@ class CountdownsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def countdown_params
-      params.require(:countdown).permit(:couple_id, :name, :date)
+      params.require(:countdown).permit(:name, :date)
     end
 end
